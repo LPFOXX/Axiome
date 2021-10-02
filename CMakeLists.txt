@@ -14,13 +14,15 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "GLFW lib only" FORCE)
 
 # include directories
 include_directories(vendor/glfw/include)
+include_directories(vendor/glm)
 include_directories( ${OPENGL_INCLUDE_DIRS} )
 
 # include dependencies
 add_subdirectory(vendor/glfw)
+add_subdirectory(vendor/glm)
 
 # executable
 add_executable(Axiome main.cpp)
 
 # link dependency libraries
-target_link_libraries(Axiome ${OPENGL_LIBRARIES} glfw)
+target_link_libraries(Axiome ${OPENGL_LIBRARIES} glfw glm)
